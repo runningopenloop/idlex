@@ -145,7 +145,7 @@ def get_argspec(ob):
     else:
         fob = ob
     if isinstance(fob, (types.FunctionType, types.MethodType)):
-        argspec = inspect.formatargspec(*inspect.getfullargspec(fob))
+        argspec = str(inspect.signature(fob))
         if (isinstance(ob, (type, types.MethodType)) or
                 isinstance(ob_call, types.MethodType)):
             argspec = _first_param.sub("", argspec)
